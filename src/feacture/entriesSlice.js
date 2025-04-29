@@ -96,8 +96,13 @@ const entriesSlice = createSlice({
     users: [],
     loading: false,
     error: null,
+    searchData:"",
   },
-  reducers: {},
+  reducers: {
+    setSearchData: (state, action) => {
+      state.searchData = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createTask.pending, (state) => {
@@ -165,3 +170,4 @@ const entriesSlice = createSlice({
 });
 
 export default entriesSlice.reducer;
+export const { setSearchData } = entriesSlice.actions; 
